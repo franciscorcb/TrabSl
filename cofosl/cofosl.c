@@ -6,6 +6,8 @@
 #define TRUE 0
 #define FALSE 1
 
+
+//função para criar a lista
 SlList *sllcreate(int numItens){
     SlList *l;
     l =(SlList *)malloc(sizeof(SlList)*numItens);
@@ -16,6 +18,7 @@ SlList *sllcreate(int numItens){
     return NULL;
 }
 
+//Função para inserir como o primeiro
 int sllInsertFirst(SlList *l,void *data){
     SlNode *newnode,*next;
     if(l!=NULL){
@@ -32,6 +35,7 @@ int sllInsertFirst(SlList *l,void *data){
 }
 
 
+//função para destruir a lista
 int sllDestroyLista(SlList *l){
     SlNode *rem,*next;
     void *data;
@@ -49,6 +53,7 @@ int sllDestroyLista(SlList *l){
     return FALSE;
 }
 
+//Verifica a quantidade de Nós(Elementos) dentro da minha lista
 int sllNumItens(SlList *l){
     SlNode *atual;
     int num=0;
@@ -65,7 +70,7 @@ int sllNumItens(SlList *l){
     return num;
 }
 
-
+//função para remover o segundo elemento
 int sllRemoveSecond(SlList *l){
     SlNode *prevSec,*second,*nexSec;
     if(l!=NULL){

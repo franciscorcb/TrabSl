@@ -1,13 +1,6 @@
 #include "cofosl.h"
 
-int cmp(int a, int b) {
-    if (a == b) {
-        return TRUE;
-    } else {
-        return FALSE;
-    }
-}
-
+//Função para identificar a musica escolhida
 void letraDaMusica(int n){
     if(n>0 && n<5){
         if(n==1){
@@ -25,6 +18,7 @@ void letraDaMusica(int n){
     }
 }
 
+//função para cadastrar usuario
 Spotify *cadUsuario(){
     Spotify *newUser;
     newUser = (Spotify *)malloc(sizeof(Spotify));
@@ -48,6 +42,7 @@ Spotify *cadUsuario(){
     return NULL;
 }
 
+//função para imprimir a lista criada
 void imprimirLista(SlList *l){
     SlNode *spec;
     if(l!=NULL){
@@ -66,7 +61,7 @@ void imprimirLista(SlList *l){
     }
 }
 
-
+//Função para achar um usuario pelo nome, a escolha de sua musica e o seu o apoio
 void acharUsuario(SlList *l,void *nome, int escolha, float apoia){
     SlNode *spec;
     int stat;
@@ -78,6 +73,7 @@ void acharUsuario(SlList *l,void *nome, int escolha, float apoia){
                 Spotify *user = (Spotify *)spec->data;
                 stat = strcmp(nome, user->nome);
                 if(stat == TRUE && apoia == user->apoia && escolha == user->escolha){
+                    //se achou, então imprime os dados
                     printf("\nUsuario encontrado:\n\n");
                     printf("%s    ",user->nome);
                     printf("%d    ",user->escolha);
@@ -94,7 +90,7 @@ void acharUsuario(SlList *l,void *nome, int escolha, float apoia){
     }
 }
 
-
+//Similar a de achar usuario, a diferença é que remove um node
 int removeSpec(SlList *l,void *nome, int escolha, float apoia){
     SlNode *spec,*prev;
     int stat;
@@ -125,6 +121,7 @@ int removeSpec(SlList *l,void *nome, int escolha, float apoia){
     return FALSE;
 }
 
+//menu
 int main(){
     SlList *lista;
     Spotify *dados;

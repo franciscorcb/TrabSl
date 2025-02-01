@@ -7,15 +7,18 @@
 #define TRUE 0
 #define FALSE 1
 
+//Estrutura slnode
 typedef struct _SlNode_{
     void *data;
     struct _SlNode_ *next;
 }SlNode;
 
+//estrutura da lista
 typedef struct _SlList_{
     SlNode *first;
 }SlList;
 
+//estrutura para pegar os dados do usuario
 typedef struct _Spotify_ {
     char nome[30];
     int escolha;
